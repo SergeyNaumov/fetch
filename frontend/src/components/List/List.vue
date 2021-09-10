@@ -2,8 +2,9 @@
   <h1>Список</h1>
   <Form @onSubmit="addUser"/>
   <Errors :errors="errors"/>
-
+  
   <User v-for='item in users' :item="item" :key="item.id" :deleteUser="deleteUser"/>
+  
 
 </template>
 

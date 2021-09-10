@@ -2,8 +2,9 @@
   <select v-model="current_component">
     <option v-for="c in components" :value="c.v">{{c.d}}</option>
   </select>
-  <hr>
-  <component v-bind:is="current_component"></component>
+  <div class="container">
+    <component v-bind:is="current_component"></component>
+  </div>
   
 
   
@@ -14,7 +15,7 @@
 
 import List from '@/components/List/List.vue'
 import Files from '@/components/Files'
-import {getCurrentInstance, ref} from 'vue'
+import {ref} from 'vue'
 import { postJson } from './use/fetch'
 
 
@@ -28,7 +29,6 @@ export default {
 
     const emit = internalInstance.appContext.config.globalProperties.emitter;
     console.log('emit:',emit)*/
-    let self = getCurrentInstance()
     
 
     const components=[
@@ -44,13 +44,7 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-.item {margin-bottom: 10px;}
+@import'~bootstrap/dist/css/bootstrap.css'
+
+
 </style>

@@ -5,7 +5,7 @@
   <form @submit.prevent="onSubmit">
     Создание пользователя:
     <input type="text" v-model="name">
-    <button>добавить</button>
+    <button :disabled="!name">добавить</button>
   </form>
 </template>
 
@@ -17,7 +17,7 @@ import Errors from '../Errors'
 export default {
   components: {Errors},
   setup(_, { emit }){
-    const name=ref('Иванов Иван')
+    const name=ref('')
     const errors=ref([])
     const onSubmit = ()=>{
       emit('onSubmit',
